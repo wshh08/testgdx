@@ -53,6 +53,7 @@ public class WorldController {
     }
     public void update(float delta){
         processInput();
+        bob.getAcceleration().y = GRAVITY;
         bob.update(delta);
     }
     private void processInput() {
