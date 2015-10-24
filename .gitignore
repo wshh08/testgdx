@@ -60,6 +60,4 @@ nb-configuration.xml
 ## OS Specific
 /android/build
 /core/build
-/android/build/intermediates/resources
-/android/build/intermediates/tmp
 .DS_Store
