@@ -14,8 +14,22 @@ public class BobController {
     enum Keys {
         LEFT, RIGHT, JUMP, FIRE
     }
+
+    private static final long LONG_JUMP_PRESS   = 150l;
+    private static final float ACCELERATION     = 20f;
+    private static final float GRAVITY          = -20f;
+    private static final float MAX_JMUP_SPEED   = 7f;
+    private static final float DAMP             = 0.90f;
+    private static final float MAX_VEL          = 4f;
+
+    //these are temporary
+    private static final float WIDTH            = 10f;
+
     private World world;
     private Bob bob;
+    private long jumpPressedTime;
+    private boolean jumpingPressed;
+
     static Map<Keys, Boolean> keys = new HashMap<Keys, Boolean>();
     static{
         keys.put(Keys.LEFT, false);
