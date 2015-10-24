@@ -1,4 +1,12 @@
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key'
+            keyPassword 'wshh08900518'
+            storeFile file('/home/wshh08/Extra/Program/AndroidStudioProjects/APK_Key/APK_Key.jks')
+            storePassword 'wshh08900518'
+        }
+    }
     buildToolsVersion "21.0.1"
     compileSdkVersion 21
     sourceSets {
@@ -13,6 +21,12 @@ android {
         }
 
         instrumentTest.setRoot('tests')
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+            zipAlignEnabled true
+        }
     }
 }
 
@@ -90,5 +104,6 @@ idea {
     }
 }
 dependencies {
-    compile project(':core')    /*android模块依赖core模块，在菜单添加依赖会增加此句*/
+    compile project(':core')
+    /*android模块依赖core模块，在菜单添加依赖会增加此句*/
 }
