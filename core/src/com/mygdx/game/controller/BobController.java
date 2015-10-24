@@ -69,6 +69,7 @@ public class BobController {
         processInput();
         bob.getAcceleration().y = GRAVITY;
         bob.getVelocity().add(bob.getAcceleration().x, bob.getAcceleration().y);
+        bob.getAcceleration().scl(delta);
         bob.update(delta);
     }
     private void processInput() {
