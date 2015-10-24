@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by wshh08 on 15-10-21.
  */
-public class WorldController {
+public class BobController {
     enum Keys {
         LEFT, RIGHT, JUMP, FIRE
     }
@@ -23,7 +23,7 @@ public class WorldController {
         keys.put(Keys.JUMP, false);
         keys.put(Keys.FIRE, false);
     }
-    public WorldController(World world) {
+    public BobController(World world) {
         this.world = world;
         this.bob = world.getBob();
     }

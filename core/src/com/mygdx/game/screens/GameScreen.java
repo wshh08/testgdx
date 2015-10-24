@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.mygdx.game.controller.WorldController;
+import com.mygdx.game.controller.BobController;
 import com.mygdx.game.model.World;
 import com.mygdx.game.view.WorldRenderer;
 
@@ -16,7 +16,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 //    private World world;
     private WorldRenderer renderer;
-    private WorldController controller;
+    private BobController controller;
 
     private int width, height;
 
@@ -24,7 +24,7 @@ public class GameScreen implements Screen, InputProcessor {
     public void show() {
         World world = new World();
         renderer = new WorldRenderer(world, false);
-        controller = new WorldController(world);
+        controller = new BobController(world);
         Gdx.input.setInputProcessor(this);
     }
 
