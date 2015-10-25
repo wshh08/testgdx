@@ -94,13 +94,16 @@ public class BobController {
         }
         if (keys.get(Keys.LEFT)){
             bob.setFacingLeft(true);
-            bob.setStatue(Bob.State.WALKING);
-            bob.getVelocity().x = -Bob.SPEED;
-        }
-        if(keys.get(Keys.RIGHT)) {
+            if (!bob.getState().equals(Bob.State.JUMPING)) {
+                bob.setStatue(Bob.State.WALKING);
+            }
+            bob.getAcceleration().x = -ACCELERATION;
+        }else if(keys.get(Keys.RIGHT)) {
             bob.setFacingLeft(false);
-            bob.setStatue(Bob.State.WALKING);
-            bob.getVelocity().x = Bob.SPEED;
+            if (!bob.getState().equals(Bob.State.JUMPING)) {
+                bob.setStatue(Bob.State.WALKING);
+            }
+            bob.getAcceleration().x = ACCELERATION;
         }
         if((keys.get(Keys.LEFT)&&keys.get(Keys.RIGHT))||
                 (!keys.get(Keys.LEFT)&&!keys.get(Keys.RIGHT))){
