@@ -68,8 +68,11 @@ public class BobController {
     public void update(float delta){
         processInput();
         bob.getAcceleration().y = GRAVITY;
-        bob.getVelocity().add(bob.getAcceleration().x, bob.getAcceleration().y);
         bob.getAcceleration().scl(delta);
+        bob.getVelocity().add(bob.getAcceleration().x, bob.getAcceleration().y);
+        if (bob.getAcceleration().x==0) bob.getVelocity().x *= DAMP;
+        if (bob.getVelocity().x > MAX_VEL) bob.getVelocity().x = MAX_VEL;
+        if (bob.getVelocity().x < -MAX_VEL) bob.getVelocity().x = -MAX_VEL;
         bob.update(delta);
     }
     private void processInput() {
