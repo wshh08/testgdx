@@ -75,7 +75,7 @@ public class BobController {
         if (bob.getVelocity().x < -MAX_VEL) bob.getVelocity().x = -MAX_VEL;
         bob.update(delta);
     }
-    private void processInput() {
+    private boolean processInput() {
         if (keys.get(Keys.JUMP)) {
             if (!bob.getState().equals(Bob.State.JUMPING)) {
                 jumpingPressed = true;
@@ -115,6 +115,7 @@ public class BobController {
 //            bob.getVelocity().x = 0;
 //            bob.getAcceleration().x = 0;
 //        }
+        return false;
     }
 }
 
