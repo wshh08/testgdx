@@ -67,20 +67,24 @@ public class GameScreen implements Screen, InputProcessor {
     public boolean touchDown(int x, int y, int pointer, int button) {
         if (!Gdx.app.getType().equals(Application.ApplicationType.Android))
             return false;
-        if (x<width/2 && y>height/2)
+        if (x < width / 2 && y > height / 2)
             controller.leftPressed();
-        if (x>width/2 && y>height/2)
+        if (x > width / 2 && y > height / 2)
             controller.rightPressed();
+        if (y < height / 2)
+            controller.jumpPressed();
         return true;
     }
     @Override
     public boolean touchUp(int x, int y, int pointer, int button) {
         if (!Gdx.app.getType().equals(Application.ApplicationType.Android))
             return false;
-        if (x<width/2 && y>height/2)
+        if (x < width / 2 && y > height / 2)
             controller.leftReleased();
-        if (x>width/2 && y>height/2)
+        if (x > width / 2 && y > height / 2)
             controller.rightReleased();
+        if (y < height / 2)
+            controller.jumpReleased();
         return true;
     }
     @Override

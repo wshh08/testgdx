@@ -98,6 +98,7 @@ public class BobController {
                 bob.setState(Bob.State.IDLE);
         }
     }
+
     private boolean processInput() {
         if (keys.get(Keys.JUMP)) {
             if (!bob.getState().equals(Bob.State.JUMPING)) {    /*确定Bob在地面状态(不在JUMPING态)下才能jump*/
