@@ -127,7 +127,7 @@ public class WorldRenderer {
                 bobFrame = bob.isFacingLeft() ? bobFallLeft : bobFallRight;
             }
         }
-        spriteBatch.draw(bobFrame, (bob.getPosition().x + Bob.SIZE / 2)*ppuX, bob.getPosition().y*ppuY,
+        spriteBatch.draw(bobFrame, (bob.getPosition().x /* + Bob.SIZE / 2 */ )*ppuX, bob.getPosition().y*ppuY,
                 Bob.SIZE*ppuX, Bob.SIZE*ppuY);
 
     }

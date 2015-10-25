@@ -24,7 +24,8 @@ public class World {
         createDemoWorld();
     }
     private void createDemoWorld() {
-        bob = new Bob(new Vector2(7, 2));
+//        bob = new Bob(new Vector2(7, 2));
+        bob = new Bob(new Vector2(7, 10)); /* Bob's initial position */
         for(int i=0; i<10; i++)
         {
             blocks.add(new Block(new Vector2(i, 0)));

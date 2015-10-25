@@ -47,10 +47,7 @@ public class Bob {
         return this.acceleration;
     }
     public boolean isFacingLeft() {
-        if(facingLeft)
-            return true;
-        else
-            return false;
+            return facingLeft;
     }
     public State getState() {
         return this.state;
@@ -63,6 +60,6 @@ public class Bob {
     }
     public void update(float delta) {
         stateTime += delta;
-        position.add(velocity.cpy().scl(delta));
+        position.add(velocity.cpy().scl(delta)); /* 若delta单位为second,则controller中所有速度单位都应该为Units/Seconds */
     }
 }
