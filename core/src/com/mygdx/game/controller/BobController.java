@@ -18,7 +18,7 @@ public class BobController {
     private static final long LONG_JUMP_PRESS   = 150l;
     private static final float ACCELERATION     = 20f;
     private static final float GRAVITY          = -20f;
-    private static final float MAX_JMUP_SPEED   = 7f;
+    private static final float MAX_JUMP_SPEED   = 7f;
     private static final float DAMP             = 0.90f;
     private static final float MAX_VEL          = 4f;
 

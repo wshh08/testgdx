@@ -75,6 +75,12 @@ public class WorldRenderer {
 //        bobTexture = new Texture(Gdx.files.internal("images/bob_01.png"));
 //        blockTexture = new Texture(Gdx.files.internal("images/block.png"));
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/textures/textures.atlas"));
+        bobJumpLeft = atlas.findRegion("bob-up");
+        bobJumpRight = new TextureRegion(bobJumpLeft);
+        bobJumpRight.flip(true, false);
+        bobFallLeft = atlas.findRegion("bob-down");
+        bobFallRight = new TextureRegion(bobFallLeft);
+        bobFallRight.flip(true, false);
         bobIdleLeft = atlas.findRegion("bob-01");
         bobIdleRight = new TextureRegion(bobIdleLeft);
         bobIdleRight.flip(true, false);
@@ -114,7 +120,14 @@ public class WorldRenderer {
         if (bob.getState().equals(Bob.State.WALKING))
             bobFrame = bob.isFacingLeft() ? walkLeftAnimation.getKeyFrame(bob.getStateTime(),
                     true) : walkRightAnimation.getKeyFrame(bob.getStateTime(), true);
-        spriteBatch.draw(bobFrame, (bob.getPosition().x+0.25f)*ppuX, bob.getPosition().y*ppuY,
+        else if (bob.getState().equals(Bob.State.JUMPING)) {
+            if (bob.getVelocity().y > 0) {
+                bobFrame = bob.isFacingLeft() ? bobJumpLeft : bobJumpRight;
+            } else {
+                bobFrame = bob.isFacingLeft() ? bobFallLeft : bobFallRight;
+            }
+        }
+        spriteBatch.draw(bobFrame, (bob.getPosition().x + Bob.SIZE / 2)*ppuX, bob.getPosition().y*ppuY,
                 Bob.SIZE*ppuX, Bob.SIZE*ppuY);
 
     }
