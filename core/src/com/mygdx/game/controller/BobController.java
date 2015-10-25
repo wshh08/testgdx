@@ -61,6 +61,7 @@ public class BobController {
     }
     public void jumpReleased() {
         keys.put(Keys.JUMP, false);
+        jumpingPressed = false;
     }
     public void fireReleased() {
         keys.put(Keys.FIRE, false);
@@ -100,10 +101,10 @@ public class BobController {
         if (keys.get(Keys.JUMP)) {
             if (!bob.getState().equals(Bob.State.JUMPING)) {    /*确定Bob在地面状态(不在JUMPING态)下才能jump*/
                 jumpingPressed = true;
-                jumpPressedTime = System.currentTimeMillis();
+                jumpPressedTime = System.currentTimeMillis();   /*store the time in milliseconds when jump was initiated.*/
                 bob.setState(Bob.State.JUMPING);
-                bob.getVelocity().y = MAX_JMUP_SPEED;
-            } else {
+                bob.getVelocity().y = MAX_JUMP_SPEED;           /*set bob's vertical velocity to the maximum jump speed*/
+            } else {            /*if bob is in the air when jump is pressed execute {}*/
                 if (jumpingPressed && ((System.currentTimeMillis() - jumpPressedTime >= LONG_JUMP_PRESS))) {
                     jumpingPressed = false;
                 } else {
@@ -120,7 +121,7 @@ public class BobController {
                 bob.setState(Bob.State.WALKING);
             }
             bob.getAcceleration().x = -ACCELERATION;
-        }else if(keys.get(Keys.RIGHT)) {
+        } else if(keys.get(Keys.RIGHT)) {
             bob.setFacingLeft(false);
             if (!bob.getState().equals(Bob.State.JUMPING)) {
                 bob.setState(Bob.State.WALKING);

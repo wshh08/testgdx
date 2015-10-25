@@ -27,7 +27,3 @@ task copyAndroidNatives() {
         }
     }
 }
-
-eclipse.project {
-    name = appName + "-core"
-}

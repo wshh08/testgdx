@@ -55,7 +55,3 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     }
 }
-
-tasks.eclipse.doLast {
-    delete ".project"
-}
