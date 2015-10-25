@@ -100,7 +100,7 @@ public class WorldRenderer {
 
     public void render() {
         spriteBatch.begin();
-        drawBlocks();
+//        drawBlocks();
         drawBob();
         spriteBatch.end();
         if(debug)
