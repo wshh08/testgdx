@@ -76,6 +76,22 @@ public class BobController {
         bob.update(delta);
     }
     private void processInput() {
+        if (keys.get(Keys.JUMP)) {
+            if (!bob.getState().equals(Bob.State.JUMPING)) {
+                jumpingPressed = true;
+                jumpPressedTime = System.currentTimeMillis();
+                bob.setStatue(Bob.State.JUMPING);
+                bob.getVelocity().y = MAX_JMUP_SPEED;
+            } else {
+                if (jumpingPressed && ((System.currentTimeMillis() - jumpPressedTime >= LONG_JUMP_PRESS))) {
+                    jumpingPressed = false;
+                } else {
+                    if (jumpingPressed) {
+                        bob.getVelocity().y = MAX_JMUP_SPEED;
+                    }
+                }
+            }
+        }
         if (keys.get(Keys.LEFT)){
             bob.setFacingLeft(true);
             bob.setStatue(Bob.State.WALKING);
