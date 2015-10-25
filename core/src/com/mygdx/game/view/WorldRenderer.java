@@ -24,8 +24,12 @@ public class WorldRenderer {
     private TextureRegion bobIdleLeft;
     private TextureRegion bobIdleRight;
     private TextureRegion blockTexture;
-//    private TextureRegion bobFrame;
+    private TextureRegion bobJumpLeft;
+    private TextureRegion bobJumpRight;
+    private TextureRegion bobFallLeft;
+    private TextureRegion bobFallRight;
 
+//    private TextureRegion bobFrame;
     private Animation walkLeftAnimation;
     private Animation walkRightAnimation;
 
