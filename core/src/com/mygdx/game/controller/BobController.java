@@ -74,6 +74,12 @@ public class BobController {
         if (bob.getVelocity().x > MAX_VEL) bob.getVelocity().x = MAX_VEL;
         if (bob.getVelocity().x < -MAX_VEL) bob.getVelocity().x = -MAX_VEL;
         bob.update(delta);
+        if (bob.getPosition().y<0) {
+            bob.getPosition().y = 0f;
+            bob.setPosition(bob.getPosition());
+            if (bob.getState().equals(Bob.State.JUMPING))
+                bob.setStatue(Bob.State.IDLE);
+        }
     }
     private boolean processInput() {
         if (keys.get(Keys.JUMP)) {

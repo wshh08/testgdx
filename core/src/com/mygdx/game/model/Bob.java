@@ -58,6 +58,9 @@ public class Bob {
     public float getStateTime() {
         return stateTime;
     }
+    public void setPosition(Vector2 posttion) {
+        this.position = posttion;
+    }
     public void update(float delta) {
         stateTime += delta;
         position.add(velocity.cpy().scl(delta));
