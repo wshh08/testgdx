@@ -76,7 +76,8 @@ public class BobController {
         if (bob.getAcceleration().x == 0) bob.getVelocity().x *= DAMP;      /*没有按左、右键时每个循环水平方向速度乘以0.9以实现平滑停止Walk的效果*/
         if (bob.getVelocity().x > MAX_VEL) bob.getVelocity().x = MAX_VEL;
         if (bob.getVelocity().x < -MAX_VEL) bob.getVelocity().x = -MAX_VEL;
-        bob.update(delta);
+        bob.update(delta);      /*根据Velocity更新Position: position.add(velocity.cpy().scl(delta));*/
+        /*以下为World边界检测*/
         if (bob.getPosition().y < 0) {
             bob.getPosition().y = 0f;
             bob.setPosition(bob.getPosition());
