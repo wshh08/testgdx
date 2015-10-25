@@ -15,6 +15,8 @@ public class Block {
         this.position = pos;
         this.bounds.width = SIZE;
         this.bounds.height = SIZE;
+        this.bounds.x = pos.x;
+        this.bounds.y = pos.y;
     }
     public Rectangle getBounds() {
         return bounds;

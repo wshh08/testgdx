@@ -25,7 +25,7 @@ public class BobController {
     //these are temporary
     private static final float WIDTH            = 10f;
 
-    private World world;
+//    private World world;
     private Bob bob;
     private long jumpPressedTime;
     private boolean jumpingPressed;
@@ -38,7 +38,7 @@ public class BobController {
         keys.put(Keys.FIRE, false);
     }
     public BobController(World world) {
-        this.world = world;
+//        this.world = world;
         this.bob = world.getBob();
     }
     public void leftPressed() {

@@ -139,20 +139,20 @@ public class WorldRenderer {
         for(Object block : world.getBlocks())
         {
             Rectangle rect = ((Block)block).getBounds();
-            float x = ((Block)block).getPosition().x/* + rect.x*/;
-            float y = ((Block)block).getPosition().y/* + rect.y*/;
+//            float x = ((Block)block).getPosition().x/* + rect.x*/;
+//            float y = ((Block)block).getPosition().y/* + rect.y*/;
             debugRenderer.setColor(new Color(1, 0, 0, 1));
-            debugRenderer.rect(x, y, rect.width, rect.height);
+            debugRenderer.rect(rect.getX(), rect.getY(),rect.getWidth(),rect.getHeight());
         }
 //  render bob
 //        debugRenderer.end();
 //        debugRenderer.begin(ShapeRenderer.ShapeType.Filled);
         Bob bob = world.getBob();
         Rectangle rect = bob.getBounds();
-        float x = bob.getPosition().x + 0.25f;
-        float y = bob.getPosition().y;
+//        float x = bob.getPosition().x;
+//        float y = bob.getPosition().y;
         debugRenderer.setColor(new Color(0, 1, 0, 1));
-        debugRenderer.rect(x, y, rect.width, rect.height);
+        debugRenderer.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
         debugRenderer.end();
     }
 }

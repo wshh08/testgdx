@@ -55,11 +55,15 @@ public class Bob {
     public float getStateTime() {
         return stateTime;
     }
-    public void setPosition(Vector2 posttion) {
-        this.position = posttion;
+    public void setPosition(Vector2 position) {
+        this.position = position;
+        bounds.x = position.x;
+        bounds.y = position.y;
     }
     public void update(float delta) {
         stateTime += delta;
         position.add(velocity.cpy().scl(delta)); /* 若delta单位为second,则controller中所有速度单位都应该为Units/Seconds */
+        bounds.x = position.x;
+        bounds.y = position.y;
     }
 }
