@@ -70,22 +70,28 @@ public class BobController {
         bob.getAcceleration().y = GRAVITY;
         bob.getAcceleration().scl(delta);
         bob.getVelocity().add(bob.getAcceleration().x, bob.getAcceleration().y);
-        if (bob.getAcceleration().x==0) bob.getVelocity().x *= DAMP;
+        if (bob.getAcceleration().x == 0) bob.getVelocity().x *= DAMP;
         if (bob.getVelocity().x > MAX_VEL) bob.getVelocity().x = MAX_VEL;
         if (bob.getVelocity().x < -MAX_VEL) bob.getVelocity().x = -MAX_VEL;
         bob.update(delta);
-        if (bob.getPosition().y<0) {
+        if (bob.getPosition().y < 0) {
             bob.getPosition().y = 0f;
             bob.setPosition(bob.getPosition());
             if (bob.getState().equals(Bob.State.JUMPING))
                 bob.setState(Bob.State.IDLE);
         }
-        if (bob.getPosition().x<0) {
+        if (bob.getPosition().x < 0) {
             bob.getPosition().x = 0;
             bob.setPosition(bob.getPosition());
             if (!bob.getState().equals(Bob.State.JUMPING)) {
                 bob.setState(Bob.State.IDLE);
             }
+        }
+        if (bob.getPosition().x > WIDTH - bob.getBounds().width) {
+            bob.getPosition().x = WIDTH - bob.getBounds().width;
+            bob.setPosition(bob.getPosition());
+            if (!bob.getState().equals(Bob.State.JUMPING))
+                bob.setState(Bob.State.IDLE);
         }
     }
     private boolean processInput() {
