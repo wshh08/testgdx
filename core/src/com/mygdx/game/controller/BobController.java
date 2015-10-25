@@ -2,7 +2,7 @@ package com.mygdx.game.controller;
 
 import com.mygdx.game.model.World;
 import com.mygdx.game.model.Bob;
-import com.mygdx.game.view.WorldRenderer;
+//import com.mygdx.game.view.WorldRenderer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,7 +80,7 @@ public class BobController {
             if (!bob.getState().equals(Bob.State.JUMPING)) {
                 jumpingPressed = true;
                 jumpPressedTime = System.currentTimeMillis();
-                bob.setStatue(Bob.State.JUMPING);
+                bob.setState(Bob.State.JUMPING);
                 bob.getVelocity().y = MAX_JMUP_SPEED;
             } else {
                 if (jumpingPressed && ((System.currentTimeMillis() - jumpPressedTime >= LONG_JUMP_PRESS))) {
@@ -95,18 +95,18 @@ public class BobController {
         if (keys.get(Keys.LEFT)){
             bob.setFacingLeft(true);
             if (!bob.getState().equals(Bob.State.JUMPING)) {
-                bob.setStatue(Bob.State.WALKING);
+                bob.setState(Bob.State.WALKING);
             }
             bob.getAcceleration().x = -ACCELERATION;
         }else if(keys.get(Keys.RIGHT)) {
             bob.setFacingLeft(false);
             if (!bob.getState().equals(Bob.State.JUMPING)) {
-                bob.setStatue(Bob.State.WALKING);
+                bob.setState(Bob.State.WALKING);
             }
             bob.getAcceleration().x = ACCELERATION;
         } else {
             if (!bob.getState().equals(Bob.State.JUMPING))
-                bob.setStatue(Bob.State.IDLE);
+                bob.setState(Bob.State.IDLE);
             bob.getAcceleration().x = 0;
         }
 //        if((keys.get(Keys.LEFT)&&keys.get(Keys.RIGHT))||

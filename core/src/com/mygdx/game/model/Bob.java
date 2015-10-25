@@ -37,7 +37,7 @@ public class Bob {
     public void setFacingLeft(boolean facingLeft) {
         this.facingLeft = facingLeft;
     }
-    public void setStatue(State newState) {
+    public void setState(State newState) {
         this.state = newState;
     }
     public Vector2 getVelocity() {
