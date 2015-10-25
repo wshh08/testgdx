@@ -78,7 +78,14 @@ public class BobController {
             bob.getPosition().y = 0f;
             bob.setPosition(bob.getPosition());
             if (bob.getState().equals(Bob.State.JUMPING))
-                bob.setStatue(Bob.State.IDLE);
+                bob.setState(Bob.State.IDLE);
+        }
+        if (bob.getPosition().x<0) {
+            bob.getPosition().x = 0;
+            bob.setPosition(bob.getPosition());
+            if (!bob.getState().equals(Bob.State.JUMPING)) {
+                bob.setState(Bob.State.IDLE);
+            }
         }
     }
     private boolean processInput() {
